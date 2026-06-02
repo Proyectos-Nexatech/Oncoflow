@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
+<w:body>
+    <w:bookmarkStart w:id="20" w:name="documento-de-especificaciones-técnicas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">DOCUMENTO DE ESPECIFICACIONES TÉCNICAS</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="20" />
+    <w:bookmarkStart w:id="21" w:name="X218f56dd4ed0aa22a723a2a61b4ed854cbcad53" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">SISTEMA WEB DE GESTIÓN Y CONTROL DE ENTREGA DE MEDICAMENTOS ONCOLÓGICOS</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="21" />
+    <w:bookmarkStart w:id="25" w:name="información-general" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">1. INFORMACIÓN GENERAL</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="22" w:name="nombre-del-proyecto" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Nombre del Proyecto</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Sistema Web de Gestión de Programación, Entrega y Facturación de Medicamentos Oncológicos.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="22" />
+    <w:bookmarkStart w:id="23" w:name="objetivo-general" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Objetivo General</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Desarrollar un aplicativo web responsive que permita gestionar y controlar la programación diaria y semanal de entrega de medicamentos oncológicos a pacientes, incluyendo el control documental, administrativo y de facturación mensual asociado a dichas entregas.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="23" />
+    <w:bookmarkStart w:id="24" w:name="tipo-de-aplicación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Tipo de Aplicación</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1001" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Aplicación Web Responsive</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1001" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Multiusuario</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1001" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Acceso por roles</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1001" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Arquitectura cliente-servidor</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="24" />
+    <w:bookmarkEnd w:id="25" />
+    <w:bookmarkStart w:id="26" w:name="objetivos-funcionales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">2. OBJETIVOS FUNCIONALES</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema debe permitir:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestionar pacientes oncológicos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Programar entregas diarias y semanales.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Controlar documentación requerida para la entrega.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestionar el inventario básico de medicamentos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Registrar y validar entregas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Controlar el proceso de facturación mensual.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Generar indicadores operativos y administrativos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestionar usuarios y permisos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1002" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Generar reportes exportables.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="26" />
+    <w:bookmarkStart w:id="27" w:name="alcance-funcional" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">3. ALCANCE FUNCIONAL</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema incluirá los siguientes módulos:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Dashboard Principal</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestión de Pacientes</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Programación de Entregas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestión de Medicamentos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestión de Entregas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gestión Documental</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Reportes</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1003" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Administración y Seguridad</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="27" />
+    <w:bookmarkStart w:id="28" w:name="requerimientos-funcionales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4. REQUERIMIENTOS FUNCIONALES</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="28" />
+    <w:bookmarkStart w:id="35" w:name="dashboard-principal" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.1 DASHBOARD PRINCIPAL</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="29" w:name="descripción" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Descripción</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Pantalla principal del sistema con indicadores operativos y administrativos.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="29" />
+    <w:bookmarkStart w:id="34" w:name="funcionalidades" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="30" w:name="indicadores-operativos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Indicadores operativos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1004" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pacientes programados hoy.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1004" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas realizadas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1004" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas pendientes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1004" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas reprogramadas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1004" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas vencidas.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="30" />
+    <w:bookmarkStart w:id="31" w:name="indicadores-administrativos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Indicadores administrativos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1005" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas facturables.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1005" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación mensual.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1005" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas con documentación incompleta.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1005" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Valor pendiente por facturar.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="31" />
+    <w:bookmarkStart w:id="32" w:name="indicadores-documentales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Indicadores documentales</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1006" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fórmulas vencidas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1006" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Autorizaciones próximas a vencer.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1006" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentos pendientes.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="32" />
+    <w:bookmarkStart w:id="33" w:name="visualizaciones" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Visualizaciones</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1007" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gráficas estadísticas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1007" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Agenda diaria.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1007" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Agenda semanal.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1007" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Alertas operativas.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="33" />
+    <w:bookmarkEnd w:id="34" />
+    <w:bookmarkEnd w:id="35" />
+    <w:bookmarkStart w:id="41" w:name="módulo-de-pacientes" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.2 MÓDULO DE PACIENTES</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="40" w:name="funcionalidades-1" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="36" w:name="registro-de-pacientes" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Registro de pacientes</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema debe permitir:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1008" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Crear pacientes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1008" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Editar pacientes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1008" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Consultar pacientes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1008" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Inactivar pacientes.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="36" />
+    <w:bookmarkStart w:id="37" w:name="datos-requeridos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Datos requeridos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tipo documento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Número documento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Nombre completo.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fecha nacimiento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Sexo.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Teléfono.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Dirección.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">EPS.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Diagnóstico.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Médico tratante.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tipo tratamiento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1009" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Estado del paciente.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="37" />
+    <w:bookmarkStart w:id="38" w:name="gestión-documental-del-paciente" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Gestión documental del paciente</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Permitir cargar:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1010" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fórmula médica.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1010" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Autorizaciones.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1010" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Consentimientos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1010" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Historia clínica.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1010" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documento identidad.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="38" />
+    <w:bookmarkStart w:id="39" w:name="estados-del-paciente" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Estados del paciente</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1011" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Activo.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1011" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Suspendido.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1011" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Finalizado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1011" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fallecido.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="39" />
+    <w:bookmarkEnd w:id="40" />
+    <w:bookmarkEnd w:id="41" />
+    <w:bookmarkStart w:id="47" w:name="módulo-de-programación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.3 MÓDULO DE PROGRAMACIÓN</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="46" w:name="funcionalidades-2" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="42" w:name="programación-diaria" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Programación diaria</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1012" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Crear programación diaria.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1012" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Asignar fecha y hora.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1012" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Asignar medicamento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1012" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Asignar responsable.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="42" />
+    <w:bookmarkStart w:id="43" w:name="programación-semanal" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Programación semanal</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Vista calendario semanal tipo scheduler.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="43" />
+    <w:bookmarkStart w:id="44" w:name="estados-de-programación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Estados de programación</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Programado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Confirmado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pendiente documentación.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pendiente autorización.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Listo para entrega.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Reprogramado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1013" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Cancelado.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="44" />
+    <w:bookmarkStart w:id="45" w:name="funciones-adicionales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Funciones adicionales</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1014" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Reprogramación rápida.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1014" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Filtros avanzados.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1014" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Búsqueda inteligente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1014" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Alertas automáticas.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="45" />
+    <w:bookmarkEnd w:id="46" />
+    <w:bookmarkEnd w:id="47" />
+    <w:bookmarkStart w:id="52" w:name="módulo-de-medicamentos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.4 MÓDULO DE MEDICAMENTOS</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="51" w:name="funcionalidades-3" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="48" w:name="gestión-de-catálogo" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Gestión de catálogo</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1015" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Crear medicamento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1015" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Editar medicamento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1015" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Consultar medicamento.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="48" />
+    <w:bookmarkStart w:id="49" w:name="información-requerida" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Información requerida</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Código.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Nombre comercial.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Nombre genérico.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Concentración.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Presentación.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Laboratorio.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Valor unitario.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1016" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tipo medicamento.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="49" />
+    <w:bookmarkStart w:id="50" w:name="control-de-inventario" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Control de inventario</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1017" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Stock disponible.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1017" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Lotes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1017" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fecha vencimiento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1017" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Reservas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1017" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Alertas de agotamiento.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="50" />
+    <w:bookmarkEnd w:id="51" />
+    <w:bookmarkEnd w:id="52" />
+    <w:bookmarkStart w:id="58" w:name="módulo-de-entregas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.5 MÓDULO DE ENTREGAS</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="57" w:name="funcionalidades-4" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="53" w:name="registro-de-entrega" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Registro de entrega</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema debe permitir registrar:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fecha entrega.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Hora entrega.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Paciente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Responsable.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Medicamentos entregados.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Cantidades.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1018" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Observaciones.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="53" />
+    <w:bookmarkStart w:id="54" w:name="validaciones-previas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Validaciones previas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">No debe permitirse entrega si:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1019" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Falta autorización.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1019" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Falta fórmula médica.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1019" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentación vencida.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1019" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Inventario insuficiente.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="54" />
+    <w:bookmarkStart w:id="55" w:name="evidencias" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Evidencias</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Permitir cargar:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1020" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Firma digital.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1020" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Fotografías.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1020" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">PDF soporte.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1020" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Acta entrega.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="55" />
+    <w:bookmarkStart w:id="56" w:name="estados-de-entrega" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Estados de entrega</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1021" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pendiente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1021" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">En proceso.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1021" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1021" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">No entregado.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1021" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Rechazado.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="56" />
+    <w:bookmarkEnd w:id="57" />
+    <w:bookmarkEnd w:id="58" />
+    <w:bookmarkStart w:id="63" w:name="módulo-documental" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.6 MÓDULO DOCUMENTAL</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="62" w:name="funcionalidades-5" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="59" w:name="gestión-documental" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Gestión documental</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Permitir:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1022" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Cargar documentos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1022" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Actualizar documentos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1022" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Validar documentos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1022" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Rechazar documentos.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="59" />
+    <w:bookmarkStart w:id="60" w:name="estados-documentales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Estados documentales</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1023" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Completo.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1023" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pendiente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1023" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Vencido.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1023" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">En revisión.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1023" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Rechazado.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="60" />
+    <w:bookmarkStart w:id="61" w:name="alertas-automáticas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Alertas automáticas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1024" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentos vencidos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1024" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentos próximos a vencer.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1024" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentos faltantes.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="61" />
+    <w:bookmarkEnd w:id="62" />
+    <w:bookmarkEnd w:id="63" />
+    <w:bookmarkStart w:id="68" w:name="módulo-de-facturación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.7 MÓDULO DE FACTURACIÓN</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="67" w:name="funcionalidades-6" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Funcionalidades</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="64" w:name="gestión-de-facturación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Gestión de facturación</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1025" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Consolidar entregas facturables.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1025" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Validar documentación.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1025" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Generar relación de facturación mensual.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1025" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Exportar información.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="64" />
+    <w:bookmarkStart w:id="65" w:name="reglas-de-negocio" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Reglas de negocio</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">No debe permitirse facturar si:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1026" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">La entrega no está confirmada.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1026" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">La documentación está incompleta.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1026" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Existen soportes pendientes.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="65" />
+    <w:bookmarkStart w:id="66" w:name="indicadores" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Indicadores</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1027" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Valor facturado mensual.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1027" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Valor pendiente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1027" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación por EPS.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1027" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación por medicamento.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="66" />
+    <w:bookmarkEnd w:id="67" />
+    <w:bookmarkEnd w:id="68" />
+    <w:bookmarkStart w:id="73" w:name="módulo-de-reportes" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.8 MÓDULO DE REPORTES</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="72" w:name="reportes-requeridos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Reportes requeridos</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="69" w:name="operativos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Operativos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1028" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas diarias.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1028" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Entregas semanales.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1028" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Programaciones pendientes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1028" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Pacientes pendientes.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="69" />
+    <w:bookmarkStart w:id="70" w:name="administrativos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Administrativos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1029" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación mensual.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1029" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación por EPS.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1029" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Indicadores de cumplimiento.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="70" />
+    <w:bookmarkStart w:id="71" w:name="exportación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Exportación</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1030" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Excel.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1030" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">PDF.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="71" />
+    <w:bookmarkEnd w:id="72" />
+    <w:bookmarkEnd w:id="73" />
+    <w:bookmarkStart w:id="78" w:name="módulo-de-administración" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">4.9 MÓDULO DE ADMINISTRACIÓN</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="77" w:name="gestión-de-usuarios" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Gestión de usuarios</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="74" w:name="funciones" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Funciones</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1031" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Crear usuarios.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1031" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Editar usuarios.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1031" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Desactivar usuarios.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1031" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Restablecer contraseñas.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="74" />
+    <w:bookmarkStart w:id="75" w:name="roles-requeridos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Roles requeridos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Administrador.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Coordinador.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Farmacia.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Médico.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Auxiliar.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1032" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Auditor.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="75" />
+    <w:bookmarkStart w:id="76" w:name="seguridad" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Seguridad</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1033" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Control de acceso por rol.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1033" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Registro de auditoría.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1033" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Historial de acciones.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="76" />
+    <w:bookmarkEnd w:id="77" />
+    <w:bookmarkEnd w:id="78" />
+    <w:bookmarkStart w:id="79" w:name="requerimientos-no-funcionales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5. REQUERIMIENTOS NO FUNCIONALES</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="79" />
+    <w:bookmarkStart w:id="80" w:name="responsive-design" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5.1 RESPONSIVE DESIGN</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema debe ser compatible con:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1034" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Desktop.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1034" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tablet.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1034" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Mobile.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="80" />
+    <w:bookmarkStart w:id="82" w:name="seguridad-1" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5.2 SEGURIDAD</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="81" w:name="requerimientos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Requerimientos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Autenticación segura.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Contraseñas encriptadas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Manejo de sesiones.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Roles y permisos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Registro de auditoría.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1035" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">HTTPS obligatorio.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="81" />
+    <w:bookmarkEnd w:id="82" />
+    <w:bookmarkStart w:id="83" w:name="rendimiento" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5.3 RENDIMIENTO</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1036" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tiempo de carga menor a 3 segundos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1036" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Soporte mínimo para 100 usuarios concurrentes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1036" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Optimización de consultas.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="83" />
+    <w:bookmarkStart w:id="84" w:name="escalabilidad" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5.4 ESCALABILIDAD</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">La arquitectura debe permitir:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1037" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Integración futura con ERP.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1037" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Integración con APIs externas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1037" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Escalabilidad horizontal.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="84" />
+    <w:bookmarkStart w:id="85" w:name="disponibilidad" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">5.5 DISPONIBILIDAD</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1038" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Disponibilidad mínima: 99%.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1038" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Backups automáticos diarios.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="85" />
+    <w:bookmarkStart w:id="86" w:name="requerimientos-técnicos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">6. REQUERIMIENTOS TÉCNICOS</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="86" />
+    <w:bookmarkStart w:id="89" w:name="frontend" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">FRONTEND</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="87" w:name="tecnologías-sugeridas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Tecnologías sugeridas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1039" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">React.js</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1039" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Next.js</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1039" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tailwind CSS</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="87" />
+    <w:bookmarkStart w:id="88" w:name="características" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Características</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1040" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Responsive.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1040" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">SPA.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1040" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Componentes reutilizables.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="88" />
+    <w:bookmarkEnd w:id="89" />
+    <w:bookmarkStart w:id="91" w:name="backend" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">BACKEND</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="90" w:name="tecnologías-sugeridas-1" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Tecnologías sugeridas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1041" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Node.js</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1041" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">NestJS o Express.js</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="90" />
+    <w:bookmarkEnd w:id="91" />
+    <w:bookmarkStart w:id="94" w:name="base-de-datos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">BASE DE DATOS</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="92" w:name="motor-sugerido" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Motor sugerido</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1042" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">PostgreSQL</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="92" />
+    <w:bookmarkStart w:id="93" w:name="características-1" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Características</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1043" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Relaciones normalizadas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1043" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Integridad referencial.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1043" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Soporte transaccional.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="93" />
+    <w:bookmarkEnd w:id="94" />
+    <w:bookmarkStart w:id="96" w:name="storage" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">STORAGE</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="95" w:name="gestión-documental-1" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Gestión documental</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1044" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">AWS S3 o Firebase Storage.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="95" />
+    <w:bookmarkEnd w:id="96" />
+    <w:bookmarkStart w:id="97" w:name="autenticación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">AUTENTICACIÓN</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1045" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">JWT Authentication.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1045" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">OAuth opcional.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="97" />
+    <w:bookmarkStart w:id="106" w:name="estructura-preliminar-de-base-de-datos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">7. ESTRUCTURA PRELIMINAR DE BASE DE DATOS</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="105" w:name="tablas-principales" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Tablas principales</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="98" w:name="usuarios" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Usuarios</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_usuario</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">nombre</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">correo</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">contraseña</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">rol</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1046" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">estado</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="98" />
+    <w:bookmarkStart w:id="99" w:name="pacientes" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Pacientes</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_paciente</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">documento</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">nombres</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">eps</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">diagnostico</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1047" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">estado</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="99" />
+    <w:bookmarkStart w:id="100" w:name="medicamentos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Medicamentos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_medicamento</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">codigo</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">nombre</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">stock</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">lote</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1048" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">vencimiento</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="100" />
+    <w:bookmarkStart w:id="101" w:name="programaciones" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Programaciones</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1049" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_programacion</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1049" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">paciente</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1049" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">fecha</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1049" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">estado</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="101" />
+    <w:bookmarkStart w:id="102" w:name="entregas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Entregas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1050" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_entrega</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1050" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">programacion</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1050" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">fecha</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1050" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">estado</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="102" />
+    <w:bookmarkStart w:id="103" w:name="facturacion" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Facturacion</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1051" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_factura</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1051" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">entrega</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1051" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">eps</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1051" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">valor</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1051" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">estado</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="103" />
+    <w:bookmarkStart w:id="104" w:name="documentos" />
+    <w:p><w:pPr><w:pStyle w:val="Heading3" /></w:pPr><w:r><w:t xml:space="preserve">Documentos</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1052" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">id_documento</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1052" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">paciente</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1052" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">tipo</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1052" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">fecha_vencimiento</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="104" />
+    <w:bookmarkEnd w:id="105" />
+    <w:bookmarkEnd w:id="106" />
+    <w:bookmarkStart w:id="107" w:name="flujo-general-del-sistema" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">8. FLUJO GENERAL DEL SISTEMA</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">Paciente registrado</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Carga documental</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Validación administrativa</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Programación entrega</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Validación farmacéutica</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Entrega medicamento</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Carga evidencias</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Validación facturación</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Consolidado mensual</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">↓</w:t></w:r><w:r><w:t xml:space="preserve"> </w:t></w:r><w:r><w:t xml:space="preserve">Reportes gerenciales</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="107" />
+    <w:bookmarkStart w:id="111" w:name="requerimientos-de-interfaz" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">9. REQUERIMIENTOS DE INTERFAZ</w:t></w:r></w:p>
+    <w:bookmarkStart w:id="108" w:name="dashboard" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Dashboard</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1053" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Tarjetas KPI.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1053" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Gráficas dinámicas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1053" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Alertas visuales.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1053" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Calendario operativo.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="108" />
+    <w:bookmarkStart w:id="109" w:name="tablas" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Tablas</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1054" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Filtros.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1054" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Ordenamiento.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1054" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Exportación.</w:t></w:r></w:p>
+    <w:bookmarkEnd w:id="109" />
+    <w:bookmarkStart w:id="110" w:name="formularios" />
+    <w:p><w:pPr><w:pStyle w:val="Heading2" /></w:pPr><w:r><w:t xml:space="preserve">Formularios</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1055" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Validaciones en tiempo real.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1055" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Adjuntos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1055" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Autocompletado.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="110" />
+    <w:bookmarkEnd w:id="111" />
+    <w:bookmarkStart w:id="112" w:name="futuras-integraciones" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">10. FUTURAS INTEGRACIONES</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema debe quedar preparado para futuras integraciones con:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">ERP contable.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Facturación electrónica.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">APIs de EPS.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">WhatsApp.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Correo electrónico.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1056" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">HL7/FHIR.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="112" />
+    <w:bookmarkStart w:id="113" w:name="entregables-esperados" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">11. ENTREGABLES ESPERADOS</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El desarrollador deberá entregar:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Código fuente.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Base de datos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Documentación técnica.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Manual de usuario.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Manual de instalación.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">API Documentation.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Ambiente de pruebas.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1057" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Ambiente producción.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="113" />
+    <w:bookmarkStart w:id="114" w:name="criterios-de-aceptación" />
+    <w:p><w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">12. CRITERIOS DE ACEPTACIÓN</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="FirstParagraph" /></w:pPr><w:r><w:t xml:space="preserve">El sistema será aceptado cuando:</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1058" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Todos los módulos estén operativos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1058" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Se validen flujos funcionales.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1058" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">No existan errores críticos.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1058" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Se cumplan los tiempos de respuesta.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Compact" /><w:numPr><w:ilvl w:val="0" /><w:numId w:val="1058" /></w:numPr></w:pPr><w:r><w:t xml:space="preserve">Exista trazabilidad completa de entregas y facturación.</w:t></w:r></w:p>
+    <w:p><w:r><w:pict><v:rect style="width:0;height:1.5pt" o:hralign="center" o:hrstd="t" o:hr="t" /></w:pict></w:r></w:p>
+    <w:bookmarkEnd w:id="114" />
+    <w:sectPr>
+      <w:footnotePr>
+        
+                
+        <w:numRestart w:val="eachSect" />
+        
+              
+      </w:footnotePr>
+    </w:sectPr>
+  </w:body>
+</w:document>
