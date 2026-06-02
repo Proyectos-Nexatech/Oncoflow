@@ -112,19 +112,20 @@ export function ProgramacionModal({ isOpen, onClose, onSuccess, progToEdit, read
         };
       });
 
-      const toInsert = data.map(row => {
+      const toInsert: any[] = [];
+      data.forEach(row => {
         const pac = pacientes.find(p => p.numero_documento === row.documento);
         const med = medicamentos.find(m => m.codigo === row.medicamento || m.nombre_comercial.toLowerCase() === row.medicamento.toLowerCase());
         
-        if (!pac || !med || !row.fecha) return null;
-        
-        return {
-          paciente_id: pac.id,
-          medicamento_id: med.id,
-          fecha_programada: `${row.fecha}T${row.hora}:00Z`,
-          estado: 'programado'
-        };
-      }).filter(Boolean);
+        if (pac && med && row.fecha) {
+          toInsert.push({
+            paciente_id: pac.id,
+            medicamento_id: med.id,
+            fecha_programada: `${row.fecha}T${row.hora}:00Z`,
+            estado: 'programado'
+          });
+        }
+      });
 
       if (toInsert.length > 0) {
         const supabase = createClient();
