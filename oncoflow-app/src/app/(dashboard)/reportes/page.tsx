@@ -48,7 +48,7 @@ export default function ReportesPage() {
     setExporting(`${reportId}-excel`);
     try {
       const supabase = createClient();
-      let dataToExport = [];
+      let dataToExport: any[] = [];
 
       if (reportId === 'pacientes') {
         const { data } = await supabase.from('pacientes').select('*').order('nombre_completo');
