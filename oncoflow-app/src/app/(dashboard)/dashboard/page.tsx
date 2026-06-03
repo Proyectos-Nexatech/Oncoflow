@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import type { Metadata } from 'next';
 import {
-  CalendarDays, Package, Clock, FileWarning,
-  AlertTriangle, Pill, TrendingUp, CheckCircle2,
-  XCircle, Eye, Activity,
+  CalendarDays, Package, Clock, FileCheck2, FileWarning,
+  Pill, CheckCircle2,
+  XCircle, Eye, ReceiptText,
 } from 'lucide-react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -29,6 +28,8 @@ const KPI_DATA_DEFAULT = {
   entregas_realizadas: 0,
   entregas_pendientes: 0,
   documentos_vencidos: 0,
+  disponible_facturar_mes: 0,
+  facturacion_pendiente_mes: 0,
 };
 
 
@@ -132,8 +133,6 @@ export default function DashboardPage() {
           value={kpis.programados_hoy || 0}
           icon={<CalendarDays size={22} />}
           accent="primary"
-          trend="up"
-          trendValue="+2 vs ayer"
           subtitle="tratamientos"
         />
         <StatCard
@@ -141,26 +140,21 @@ export default function DashboardPage() {
           value={kpis.entregas_realizadas || 0}
           icon={<Package size={22} />}
           accent="success"
-          trend="up"
-          trendValue="67%"
-          subtitle="del total"
+          subtitle="hoy"
         />
         <StatCard
-          title="Entregas Pendientes"
-          value={kpis.entregas_pendientes || 0}
-          icon={<Clock size={22} />}
+          title="Disponible para Facturar"
+          value={kpis.disponible_facturar_mes || 0}
+          icon={<FileCheck2 size={22} />}
+          accent="success"
+          subtitle="entregas con docs completos"
+        />
+        <StatCard
+          title="Facturación Pendiente"
+          value={kpis.facturacion_pendiente_mes || 0}
+          icon={<ReceiptText size={22} />}
           accent="warning"
-          trend="neutral"
-          trendValue="sin cambios"
-        />
-        <StatCard
-          title="Documentos Vencidos"
-          value={kpis.documentos_vencidos || 0}
-          icon={<FileWarning size={22} />}
-          accent="danger"
-          trend="down"
-          trendValue="-1 vs ayer"
-          subtitle="requieren atención"
+          subtitle="faltan documentos este mes"
         />
       </div>
 

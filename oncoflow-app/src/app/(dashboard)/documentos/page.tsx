@@ -1,240 +1,370 @@
 'use client';
 
 import React from 'react';
-import { FileText, Search, Filter, AlertCircle, Plus } from 'lucide-react';
+import {
+  FileCheck2, Clock, CheckCircle2, AlertCircle,
+  ChevronDown, ChevronUp, Search, Calendar, Filter,
+  ReceiptText, ListChecks,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { StatCard } from '@/components/ui/stat-card';
-import { formatDate, getDocumentStatusColor, getLabelForEnum } from '@/lib/utils';
-import { useFilter, usePagination } from '@/hooks';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ChecklistEntregaPanel } from '@/components/ui/checklist-entrega-panel';
 import { createClient } from '@/lib/supabase/client';
-import { DocumentUploadModal } from '@/components/ui/document-upload-modal';
 
+// ─── helpers ───────────────────────────────────────────────────────────────
+function formatDate(d: string | null) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+function formatCOP(v: number | null) {
+  if (!v) return '—';
+  return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(v);
+}
+
+const MESES = [
+  'Enero','Febrero','Marzo','Abril','Mayo','Junio',
+  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre',
+];
+
+const THIS_YEAR = new Date().getFullYear();
+const YEARS = Array.from({ length: 5 }, (_, i) => THIS_YEAR - i);
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+interface EntregaRow {
+  entrega_id: string;
+  paciente: string;
+  paciente_documento: string;
+  eps: string;
+  medicamento: string;
+  fecha_entrega: string;
+  valor_total: number;
+  total_docs: number;
+  docs_verificados: number;
+  docs_pendientes: number;
+  listo_para_facturar: boolean;
+}
+
+// ─── Component ──────────────────────────────────────────────────────────────
 export default function DocumentosPage() {
-  const [documentos, setDocumentos] = React.useState<any[]>([]);
-  const [loading, setLoading] = React.useState(true);
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const hoy = new Date();
+  const [mes, setMes] = React.useState(hoy.getMonth() + 1);   // 1-based
+  const [anio, setAnio] = React.useState(hoy.getFullYear());
+  const [search, setSearch] = React.useState('');
+  const [filterEstado, setFilterEstado] = React.useState<'todos' | 'disponible' | 'pendiente'>('todos');
+  const [filterEPS, setFilterEPS] = React.useState('');
 
-  const cargarDocumentos = async () => {
-    setLoading(true);
+  const [entregas, setEntregas] = React.useState<EntregaRow[]>([]);
+  const [epsOptions, setEpsOptions] = React.useState<string[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [expandedId, setExpandedId] = React.useState<string | null>(null);
+
+  // ─── Data loading ────────────────────────────────────────────────────────
+  const cargar = React.useCallback(async (silencioso = false) => {
+    if (!silencioso) setLoading(true);
     const supabase = createClient();
+
+    // Build month range filter
+    const mesStr = String(mes).padStart(2, '0');
+    const desde = `${anio}-${mesStr}-01`;
+    const hasta = new Date(anio, mes, 1).toISOString().slice(0, 10); // first day of next month
+
     const { data } = await supabase
-      .from('documentos')
-      .select(`
-        *,
-        pacientes (nombre_completo, numero_documento)
-      `)
-      .order('created_at', { ascending: false });
+      .from('v_estado_facturacion_entregas')
+      .select('*')
+      .gte('fecha_entrega', desde)
+      .lt('fecha_entrega', hasta);
 
     if (data) {
-      const formatted = data.map(d => ({
-        id: d.id,
-        paciente_nombre: d.pacientes?.nombre_completo || 'Desconocido',
-        paciente_documento: d.pacientes?.numero_documento || '-',
-        tipo: d.tipo,
-        nombre_archivo: d.nombre_archivo,
-        fecha_emision: d.created_at, // O usar una columna específica
-        fecha_vencimiento: null, // Si aplica
-        estado: d.estado,
-        archivo_url: d.archivo_url,
-      }));
-      setDocumentos(formatted);
+      setEntregas(data as EntregaRow[]);
+      const eps = [...new Set(data.map((d: any) => d.eps).filter(Boolean))].sort();
+      setEpsOptions(eps as string[]);
     }
-    setLoading(false);
-  };
+    if (!silencioso) setLoading(false);
+  }, [mes, anio]);
 
-  const updateStatus = async (id: string, nuevoEstado: string) => {
-    const supabase = createClient();
-    try {
-      await supabase.from('documentos').update({ estado: nuevoEstado }).eq('id', id);
-      cargarDocumentos(); // Recargar la lista para reflejar el cambio
-    } catch (err) {
-      console.error('Error actualizando estado:', err);
-    }
-  };
+  React.useEffect(() => { cargar(); }, [cargar]);
 
-  const getStatusColorClass = (estado: string) => {
-    switch (estado) {
-      case 'completo': return 'bg-emerald-100 text-emerald-700';
-      case 'pendiente': return 'bg-slate-100 text-slate-700';
-      case 'vencido': return 'bg-rose-100 text-rose-700';
-      case 'en_revision': return 'bg-amber-100 text-amber-700';
-      case 'rechazado': return 'bg-red-100 text-red-700';
-      default: return 'bg-slate-100 text-slate-700';
-    }
-  };
+  // ─── Derived / filtered list ─────────────────────────────────────────────
+  const filtered = React.useMemo(() => {
+    return entregas.filter((e) => {
+      const matchSearch =
+        !search ||
+        e.paciente?.toLowerCase().includes(search.toLowerCase()) ||
+        e.paciente_documento?.includes(search) ||
+        e.medicamento?.toLowerCase().includes(search.toLowerCase());
+      const matchEstado =
+        filterEstado === 'todos' ||
+        (filterEstado === 'disponible' && e.listo_para_facturar) ||
+        (filterEstado === 'pendiente' && !e.listo_para_facturar);
+      const matchEPS = !filterEPS || e.eps === filterEPS;
+      return matchSearch && matchEstado && matchEPS;
+    });
+  }, [entregas, search, filterEstado, filterEPS]);
 
-  React.useEffect(() => {
-    cargarDocumentos();
-  }, []);
+  // ─── KPIs ─────────────────────────────────────────────────────────────────
+  const totalEntregas = entregas.length;
+  const disponibles = entregas.filter((e) => e.listo_para_facturar).length;
+  const pendientes = entregas.filter((e) => !e.listo_para_facturar).length;
+  const totalDocsPendientes = entregas.reduce((acc, e) => acc + (e.docs_pendientes || 0), 0);
 
-  const { search, setSearch, filteredItems, setFilter, filters } = useFilter(documentos, ['paciente_nombre', 'paciente_documento', 'nombre_archivo']);
-  const { paginatedItems, currentPage, totalPages, nextPage, prevPage, hasNext, hasPrev } = usePagination(filteredItems, 5);
-
+  // ─── Render ───────────────────────────────────────────────────────────────
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* ── Page header ─────────────────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Gestión Documental</h1>
-          <p className="text-sm text-slate-500">Control centralizado de documentación y evidencias.</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Lista de Chequeo Documental
+          </h1>
+          <p className="text-sm text-slate-500 mt-0.5">
+            Verifica la documentación requerida por entrega para habilitarla para facturación.
+          </p>
         </div>
-        <Button variant="primary" className="shadow-sm" onClick={() => setIsModalOpen(true)}>
-          <Plus size={16} />
-          Cargar Documento
-        </Button>
+
+        {/* Month / Year selector */}
+        <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2 shadow-sm">
+          <Calendar size={15} className="text-slate-400 flex-shrink-0" />
+          <select
+            value={mes}
+            onChange={(e) => setMes(Number(e.target.value))}
+            className="text-sm font-medium text-slate-700 bg-transparent border-none focus:outline-none cursor-pointer"
+          >
+            {MESES.map((m, i) => (
+              <option key={i + 1} value={i + 1}>{m}</option>
+            ))}
+          </select>
+          <select
+            value={anio}
+            onChange={(e) => setAnio(Number(e.target.value))}
+            className="text-sm font-medium text-slate-700 bg-transparent border-none focus:outline-none cursor-pointer"
+          >
+            {YEARS.map((y) => (
+              <option key={y} value={y}>{y}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* ── KPI Cards ───────────────────────────────────────────────────── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          title="Total Documentos"
-          value={documentos.length.toString()}
-          icon={<FileText size={20} />}
+          title="Entregas del Mes"
+          value={totalEntregas.toString()}
+          icon={<ReceiptText size={20} />}
           accent="primary"
+          subtitle="con medicamento entregado"
         />
         <StatCard
-          title="Completos"
-          value={documentos.filter(d => d.estado === 'completo' || d.estado === 'validado').length.toString()}
-          icon={<FileText size={20} />}
+          title="Disponible para Facturar"
+          value={disponibles.toString()}
+          icon={<CheckCircle2 size={20} />}
           accent="success"
+          subtitle="documentación completa"
         />
         <StatCard
-          title="En Revisión"
-          value={documentos.filter(d => d.estado === 'en_revision' || d.estado === 'pendiente').length.toString()}
-          icon={<Filter size={20} />}
+          title="Facturación Pendiente"
+          value={pendientes.toString()}
+          icon={<Clock size={20} />}
           accent="warning"
+          subtitle="faltan documentos"
         />
         <StatCard
-          title="Vencidos / Rechazados"
-          value={documentos.filter(d => d.estado === 'vencido' || d.estado === 'rechazado').length.toString()}
+          title="Documentos Faltantes"
+          value={totalDocsPendientes.toString()}
           icon={<AlertCircle size={20} />}
           accent="danger"
-          trend="up"
+          subtitle="ítems sin verificar"
         />
       </div>
 
+      {/* ── Tabla principal ──────────────────────────────────────────────── */}
       <Card>
         <CardHeader className="pb-3">
           <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
-            <CardTitle className="text-lg font-semibold">Repositorio Documental</CardTitle>
+            <CardTitle className="text-lg font-semibold flex items-center gap-2">
+              <ListChecks size={18} className="text-[hsl(var(--primary))]" />
+              Entregas — {MESES[mes - 1]} {anio}
+            </CardTitle>
+
+            {/* Filters */}
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <div className="relative w-full sm:w-64">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              {/* Search */}
+              <div className="relative w-full sm:w-60">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={15} />
                 <Input
-                  placeholder="Buscar paciente o archivo..."
-                  className="!pl-10 bg-slate-50/50"
+                  placeholder="Buscar paciente o medicamento..."
+                  className="!pl-10 bg-slate-50/50 text-sm"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
+
+              {/* EPS filter */}
               <select
                 className="form-input bg-slate-50/50 w-full sm:w-40 text-sm h-10"
-                value={filters.estado as string || ''}
-                onChange={(e) => setFilter('estado', e.target.value)}
+                value={filterEPS}
+                onChange={(e) => setFilterEPS(e.target.value)}
               >
-                <option value="">Todos los estados</option>
-                <option value="completo">Completo</option>
-                <option value="en_revision">En Revisión</option>
-                <option value="vencido">Vencido</option>
-                <option value="rechazado">Rechazado</option>
+                <option value="">Todas las EPS</option>
+                {epsOptions.map((e) => (
+                  <option key={e} value={e}>{e}</option>
+                ))}
+              </select>
+
+              {/* Estado filter */}
+              <select
+                className="form-input bg-slate-50/50 w-full sm:w-44 text-sm h-10"
+                value={filterEstado}
+                onChange={(e) => setFilterEstado(e.target.value as any)}
+              >
+                <option value="todos">Todos los estados</option>
+                <option value="disponible">✅ Disponible para facturar</option>
+                <option value="pendiente">⏳ Documentación pendiente</option>
               </select>
             </div>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Archivo</TableHead>
-                  <TableHead>Paciente</TableHead>
-                  <TableHead>Tipo</TableHead>
-                  <TableHead>Emisión / Vencimiento</TableHead>
-                  <TableHead>Estado</TableHead>
-                  <TableHead className="text-right">Acciones</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {paginatedItems.map((doc) => (
-                  <TableRow key={doc.id}>
-                    <TableCell className="font-medium text-slate-900">
-                      <div className="flex items-center gap-2">
-                        <FileText size={16} className="text-slate-400" />
-                        {doc.nombre_archivo}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div>
-                        <div className="font-medium">{doc.paciente_nombre}</div>
-                        <div className="text-xs text-slate-500">CC: {doc.paciente_documento}</div>
-                      </div>
-                    </TableCell>
-                    <TableCell>{getLabelForEnum(doc.tipo, 'tipo_documento')}</TableCell>
-                    <TableCell>
-                      {doc.fecha_emision || doc.fecha_vencimiento ? (
-                        <div className="text-sm">
-                          {doc.fecha_emision && <div>Emisión: {formatDate(doc.fecha_emision)}</div>}
-                          {doc.fecha_vencimiento && <div>Vence: {formatDate(doc.fecha_vencimiento)}</div>}
-                        </div>
-                      ) : (
-                        <span className="text-slate-400">-</span>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <select
-                        value={doc.estado}
-                        onChange={(e) => updateStatus(doc.id, e.target.value)}
-                        className={`px-2 py-1 rounded-full text-xs font-semibold focus:outline-none appearance-none cursor-pointer border border-transparent hover:border-black/10 transition-colors ${getStatusColorClass(doc.estado)}`}
-                      >
-                        <option value="pendiente">Pendiente</option>
-                        <option value="en_revision">En Revisión</option>
-                        <option value="completo">Completo</option>
-                        <option value="vencido">Vencido</option>
-                        <option value="rechazado">Rechazado</option>
-                      </select>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {doc.archivo_url && (
-                        <a href={doc.archivo_url} target="_blank" rel="noopener noreferrer">
-                          <Button variant="ghost" size="sm" className="h-8 text-[hsl(var(--primary))] font-semibold">Ver Documento</Button>
-                        </a>
-                      )}
-                    </TableCell>
-                  </TableRow>
-                ))}
-                {paginatedItems.length === 0 && (
-                  <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8 text-slate-500">
-                      No se encontraron documentos
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
-          </div>
-          
-          {/* Paginación */}
-          <div className="flex items-center justify-between mt-4">
-            <span className="text-sm text-slate-500">
-              Página {currentPage} de {totalPages || 1}
-            </span>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={prevPage} disabled={!hasPrev}>Anterior</Button>
-              <Button variant="outline" size="sm" onClick={nextPage} disabled={!hasNext}>Siguiente</Button>
+
+        <CardContent className="p-0">
+          {loading ? (
+            <div className="text-center py-12 text-slate-400 text-sm">Cargando entregas...</div>
+          ) : filtered.length === 0 ? (
+            <div className="text-center py-12 text-slate-400">
+              <ListChecks size={36} className="mx-auto mb-3 opacity-30" />
+              <p className="text-sm">No se encontraron entregas para este período.</p>
             </div>
-          </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Paciente</TableHead>
+                    <TableHead>EPS</TableHead>
+                    <TableHead>Medicamento</TableHead>
+                    <TableHead>Fecha Entrega</TableHead>
+                    <TableHead>Progreso</TableHead>
+                    <TableHead>Estado</TableHead>
+                    <TableHead className="text-right">Valor</TableHead>
+                    <TableHead className="w-10" />
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filtered.map((entrega) => {
+                    const isExpanded = expandedId === entrega.entrega_id;
+                    const total = entrega.total_docs || 0;
+                    const verificados = entrega.docs_verificados || 0;
+                    const pct = total > 0 ? Math.round((verificados / total) * 100) : 0;
+
+                    return (
+                      <React.Fragment key={entrega.entrega_id}>
+                        <TableRow
+                          className={`cursor-pointer transition-colors hover:bg-slate-50 ${isExpanded ? 'bg-slate-50/80 border-b-0' : ''}`}
+                          onClick={() => setExpandedId(isExpanded ? null : entrega.entrega_id)}
+                        >
+                          {/* Paciente */}
+                          <TableCell>
+                            <div>
+                              <p className="font-medium text-slate-900 text-sm">{entrega.paciente}</p>
+                              <p className="text-xs text-slate-400">CC: {entrega.paciente_documento}</p>
+                            </div>
+                          </TableCell>
+
+                          {/* EPS */}
+                          <TableCell>
+                            <span className="text-sm text-slate-600">{entrega.eps || '—'}</span>
+                          </TableCell>
+
+                          {/* Medicamento */}
+                          <TableCell>
+                            <span className="text-sm">{entrega.medicamento}</span>
+                          </TableCell>
+
+                          {/* Fecha */}
+                          <TableCell>
+                            <span className="text-sm text-slate-600">{formatDate(entrega.fecha_entrega)}</span>
+                          </TableCell>
+
+                          {/* Progreso */}
+                          <TableCell>
+                            <div className="flex items-center gap-2 min-w-[120px]">
+                              <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div
+                                  className={`h-full rounded-full transition-all ${pct === 100 ? 'bg-emerald-500' : 'bg-amber-400'}`}
+                                  style={{ width: `${pct}%` }}
+                                />
+                              </div>
+                              <span className="text-xs text-slate-500 whitespace-nowrap">
+                                {verificados}/{total}
+                              </span>
+                            </div>
+                          </TableCell>
+
+                          {/* Estado badge */}
+                          <TableCell>
+                            {entrega.listo_para_facturar ? (
+                              <Badge variant="success">✅ Disponible</Badge>
+                            ) : (
+                              <Badge variant="warning">⏳ Pendiente</Badge>
+                            )}
+                          </TableCell>
+
+                          {/* Valor */}
+                          <TableCell className="text-right">
+                            <span className="text-sm font-medium">{formatCOP(entrega.valor_total)}</span>
+                          </TableCell>
+
+                          {/* Expand icon */}
+                          <TableCell>
+                            <span className="flex items-center justify-center text-slate-400">
+                              {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                            </span>
+                          </TableCell>
+                        </TableRow>
+
+                        {/* Expanded checklist panel */}
+                        {isExpanded && (
+                          <TableRow className="bg-slate-50/80 hover:bg-slate-50/80">
+                            <TableCell colSpan={8} className="p-0 border-t border-slate-100">
+                              <ChecklistEntregaPanel
+                                entregaId={entrega.entrega_id}
+                                onUpdate={cargar}
+                              />
+                            </TableCell>
+                          </TableRow>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </div>
+          )}
+
+          {/* Footer summary */}
+          {!loading && filtered.length > 0 && (
+            <div className="flex items-center justify-between px-6 py-3 border-t border-slate-100 bg-slate-50/50">
+              <span className="text-xs text-slate-500">
+                Mostrando {filtered.length} de {totalEntregas} entregas
+              </span>
+              <div className="flex items-center gap-4 text-xs text-slate-500">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  {disponibles} disponibles para facturar
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                  {pendientes} con documentación pendiente
+                </span>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
-
-      <DocumentUploadModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSuccess={() => {
-          cargarDocumentos(); // Recargar tras subir
-        }}
-      />
     </div>
   );
 }

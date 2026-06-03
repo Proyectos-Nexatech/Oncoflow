@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Settings, Users, Shield, Database, Plus, CheckCircle2, XCircle, Edit2 } from 'lucide-react';
+import { Settings, Users, Shield, Database, Plus, CheckCircle2, XCircle, Edit2, ListChecks, Trash2, GripVertical } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -23,12 +23,20 @@ const PERMISSIONS_MATRIX = [
 ];
 
 export default function AdminPage() {
-  const [tab, setTab] = useState<'usuarios' | 'permisos'>('usuarios');
+  const [tab, setTab] = useState<'usuarios' | 'permisos' | 'checklist'>('usuarios');
   const [usuarios, setUsuarios] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
   const [modalOpen, setModalOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState<any | null>(null);
+
+  // Checklist state
+  const [tiposDoc, setTiposDoc] = useState<any[]>([]);
+  const [loadingChecklist, setLoadingChecklist] = useState(false);
+  const [nuevoNombre, setNuevoNombre] = useState('');
+  const [nuevoTipo, setNuevoTipo] = useState('otro');
+  const [nuevoDesc, setNuevoDesc] = useState('');
+  const [savingChecklist, setSavingChecklist] = useState(false);
 
   const fetchUsuarios = async () => {
     setLoading(true);
@@ -42,8 +50,52 @@ export default function AdminPage() {
     setLoading(false);
   };
 
+  const fetchTiposDoc = async () => {
+    setLoadingChecklist(true);
+    const supabase = createClient();
+    const { data } = await supabase
+      .from('checklist_tipos_documento')
+      .select('*')
+      .order('orden', { ascending: true });
+    if (data) setTiposDoc(data);
+    setLoadingChecklist(false);
+  };
+
+  const agregarTipoDoc = async () => {
+    if (!nuevoNombre.trim()) return;
+    setSavingChecklist(true);
+    const supabase = createClient();
+    await supabase.from('checklist_tipos_documento').insert({
+      nombre: nuevoNombre.trim(),
+      tipo: nuevoTipo,
+      descripcion: nuevoDesc.trim() || null,
+      obligatorio: true,
+      activo: true,
+      orden: tiposDoc.length + 1,
+    });
+    setNuevoNombre('');
+    setNuevoDesc('');
+    setNuevoTipo('otro');
+    await fetchTiposDoc();
+    setSavingChecklist(false);
+  };
+
+  const toggleActivoTipoDoc = async (id: string, activo: boolean) => {
+    const supabase = createClient();
+    await supabase.from('checklist_tipos_documento').update({ activo: !activo }).eq('id', id);
+    fetchTiposDoc();
+  };
+
+  const eliminarTipoDoc = async (id: string) => {
+    if (!confirm('¿Seguro que deseas eliminar este tipo de documento del checklist?')) return;
+    const supabase = createClient();
+    await supabase.from('checklist_tipos_documento').delete().eq('id', id);
+    fetchTiposDoc();
+  };
+
   useEffect(() => {
     fetchUsuarios();
+    fetchTiposDoc();
   }, []);
 
   const openNewUserModal = () => {
@@ -135,6 +187,12 @@ export default function AdminPage() {
             >
               Matriz de Roles y Permisos
             </button>
+            <button
+              className={`pb-3 text-sm font-medium border-b-2 transition-colors ${tab === 'checklist' ? 'border-[hsl(var(--primary))] text-[hsl(var(--primary))]' : 'border-transparent text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'}`}
+              onClick={() => setTab('checklist')}
+            >
+              <span className="flex items-center gap-1.5"><ListChecks size={14} />Checklist Documental</span>
+            </button>
           </div>
         </CardHeader>
 
@@ -191,6 +249,116 @@ export default function AdminPage() {
                   )}
                 </TableBody>
               </Table>
+            </div>
+          ) : tab === 'checklist' ? (
+            <div className="p-6 space-y-6">
+              {/* Formulario para agregar nuevo tipo */}
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                <p className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                  <Plus size={14} /> Agregar Tipo de Documento
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <input
+                    type="text"
+                    placeholder="Nombre del documento *"
+                    value={nuevoNombre}
+                    onChange={(e) => setNuevoNombre(e.target.value)}
+                    className="form-input text-sm col-span-1"
+                  />
+                  <select
+                    value={nuevoTipo}
+                    onChange={(e) => setNuevoTipo(e.target.value)}
+                    className="form-input text-sm"
+                  >
+                    <option value="formula_medica">Fórmula Médica</option>
+                    <option value="autorizacion">Autorización</option>
+                    <option value="consentimiento">Consentimiento</option>
+                    <option value="acta_entrega">Acta de Entrega</option>
+                    <option value="soporte_facturacion">Soporte de Facturación</option>
+                    <option value="historia_clinica">Historia Clínica</option>
+                    <option value="documento_identidad">Documento de Identidad</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                  <input
+                    type="text"
+                    placeholder="Descripción (opcional)"
+                    value={nuevoDesc}
+                    onChange={(e) => setNuevoDesc(e.target.value)}
+                    className="form-input text-sm"
+                  />
+                </div>
+                <div className="flex justify-end">
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    onClick={agregarTipoDoc}
+                    loading={savingChecklist}
+                    disabled={!nuevoNombre.trim()}
+                    className="gap-2"
+                  >
+                    <Plus size={14} /> Agregar
+                  </Button>
+                </div>
+              </div>
+
+              {/* Lista de tipos de documentos */}
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Nombre</TableHead>
+                    <TableHead>Tipo</TableHead>
+                    <TableHead>Descripción</TableHead>
+                    <TableHead className="text-center">Obligatorio</TableHead>
+                    <TableHead className="text-center">Activo</TableHead>
+                    <TableHead className="text-right">Acciones</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {loadingChecklist ? (
+                    <TableRow>
+                      <TableCell colSpan={6} className="text-center py-8 text-slate-400">Cargando...</TableCell>
+                    </TableRow>
+                  ) : tiposDoc.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={6} className="text-center py-8 text-slate-400">No hay tipos de documentos configurados.</TableCell>
+                    </TableRow>
+                  ) : tiposDoc.map((t) => (
+                    <TableRow key={t.id}>
+                      <TableCell className="font-medium text-sm">{t.nombre}</TableCell>
+                      <TableCell>
+                        <Badge variant="secondary" className="text-xs capitalize">{t.tipo?.replace(/_/g, ' ')}</Badge>
+                      </TableCell>
+                      <TableCell className="text-xs text-slate-500">{t.descripcion || '—'}</TableCell>
+                      <TableCell className="text-center">
+                        {t.obligatorio ? <CheckCircle2 size={16} className="text-emerald-500 mx-auto" /> : <XCircle size={16} className="text-slate-300 mx-auto" />}
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <button onClick={() => toggleActivoTipoDoc(t.id, t.activo)} className="focus:outline-none">
+                          <Badge className={`cursor-pointer transition-colors text-xs ${
+                            t.activo ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                          }`}>
+                            {t.activo ? 'Activo' : 'Inactivo'}
+                          </Badge>
+                        </button>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <button
+                          onClick={() => eliminarTipoDoc(t.id)}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                          title="Eliminar"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+
+              <div className="text-xs text-slate-400 bg-blue-50 border border-blue-100 rounded-lg p-3">
+                <strong>Nota:</strong> Los documentos marcados como <strong>Activos</strong> aparecerán automáticamente en el checklist 
+                de cada nueva entrega registrada. Los cambios aplican solo a entregas futuras.
+              </div>
             </div>
           ) : (
             <div className="overflow-x-auto p-6">
