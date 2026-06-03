@@ -275,15 +275,14 @@ export default function MedicamentosPage() {
                       {med.requiere_refrigeracion && (
                         <span className="text-[0.65rem] bg-blue-50 text-blue-600 border border-blue-100 px-1.5 py-0.5 rounded-full font-medium">❄ Refrigeración</span>
                       )}
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="h-6 w-6 p-0 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] hover:bg-slate-50"
+                      <button 
+                        className="h-6 w-6 rounded-lg flex items-center justify-center text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] hover:bg-slate-100 transition-colors border border-transparent"
                         onClick={() => { setSelectedMed(med); setIsModalOpen(true); }}
                         title="Editar Medicamento"
+                        type="button"
                       >
-                        <Edit2 size={12} />
-                      </Button>
+                        <Edit2 size={13} />
+                      </button>
                     </div>
                   </div>
                 </div>
