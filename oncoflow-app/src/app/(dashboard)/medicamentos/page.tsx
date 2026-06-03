@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Search, AlertTriangle, Clock, Package, TrendingDown } from 'lucide-react';
+import { Search, AlertTriangle, Clock, Package, TrendingDown, Edit2 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -52,6 +52,7 @@ export default function MedicamentosPage() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [selectedMed, setSelectedMed] = useState<any | null>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const loadData = async () => {
@@ -155,7 +156,7 @@ export default function MedicamentosPage() {
           <Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()} loading={isUploading}>
             <Upload size={14} className="mr-1" /> Importar Lote
           </Button>
-          <Button variant="primary" size="sm" onClick={() => setIsModalOpen(true)}>
+          <Button variant="primary" size="sm" onClick={() => { setSelectedMed(null); setIsModalOpen(true); }}>
             <Plus size={14} className="mr-1" /> Nuevo Medicamento
           </Button>
         </div>
@@ -267,12 +268,23 @@ export default function MedicamentosPage() {
                     </div>
                   </div>
 
-                  {/* Lote + refrigeración */}
-                  <div className="flex items-center justify-between pt-1 border-t border-[hsl(var(--border))]">
+                  {/* Lote + refrigeración + acciones */}
+                  <div className="flex items-center justify-between pt-2 border-t border-[hsl(var(--border))] mt-2">
                     <span className="text-[0.65rem] font-mono text-[hsl(var(--muted-foreground))]">{med.lote || '-'}</span>
-                    {med.requiere_refrigeracion && (
-                      <span className="text-[0.65rem] bg-blue-50 text-blue-600 border border-blue-100 px-1.5 py-0.5 rounded-full font-medium">❄ Refrigeración</span>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {med.requiere_refrigeracion && (
+                        <span className="text-[0.65rem] bg-blue-50 text-blue-600 border border-blue-100 px-1.5 py-0.5 rounded-full font-medium">❄ Refrigeración</span>
+                      )}
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="h-6 w-6 p-0 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] hover:bg-slate-50"
+                        onClick={() => { setSelectedMed(med); setIsModalOpen(true); }}
+                        title="Editar Medicamento"
+                      >
+                        <Edit2 size={12} />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -290,8 +302,9 @@ export default function MedicamentosPage() {
 
       <MedicamentoModal 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={() => { setIsModalOpen(false); setSelectedMed(null); }} 
         onSuccess={() => loadData()} 
+        medicamento={selectedMed}
       />
     </div>
   );

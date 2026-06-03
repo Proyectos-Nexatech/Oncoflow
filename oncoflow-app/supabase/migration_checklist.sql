@@ -92,7 +92,7 @@ SELECT
     e.paciente_id,
     e.medicamento_id,
     e.fecha_entrega,
-    e.valor_total,
+    COALESCE(e.valor_total, e.cantidad * m.valor_unitario, m.valor_unitario, 0) AS valor_total,
     e.estado                                                AS estado_entrega,
     pac.nombre_completo                                     AS paciente,
     pac.numero_documento                                    AS paciente_documento,
@@ -117,7 +117,7 @@ WHERE e.estado = 'entregado'
 GROUP BY e.id, e.paciente_id, e.medicamento_id, e.fecha_entrega,
          e.valor_total, e.estado,
          pac.nombre_completo, pac.numero_documento, pac.eps,
-         m.nombre_comercial;
+         m.nombre_comercial, e.cantidad, m.valor_unitario;
 
 
 -- ============================================================

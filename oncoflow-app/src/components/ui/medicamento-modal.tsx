@@ -6,7 +6,17 @@ import { X, Check } from 'lucide-react';
 import { Button } from './button';
 import { createClient } from '@/lib/supabase/client';
 
-export function MedicamentoModal({ isOpen, onClose, onSuccess }: { isOpen: boolean, onClose: () => void, onSuccess: () => void }) {
+export function MedicamentoModal({ 
+  isOpen, 
+  onClose, 
+  onSuccess,
+  medicamento
+}: { 
+  isOpen: boolean; 
+  onClose: () => void; 
+  onSuccess: () => void;
+  medicamento?: any;
+}) {
   const [formData, setFormData] = useState({
     nombre_generico: '',
     nombre_comercial: '',
@@ -25,6 +35,44 @@ export function MedicamentoModal({ isOpen, onClose, onSuccess }: { isOpen: boole
   
   const [loading, setLoading] = useState(false);
 
+  React.useEffect(() => {
+    if (isOpen) {
+      if (medicamento) {
+        setFormData({
+          nombre_generico: medicamento.nombre_generico || '',
+          nombre_comercial: medicamento.nombre_comercial || '',
+          codigo: medicamento.codigo || '',
+          tipo_medicamento: medicamento.tipo_medicamento || 'Quimioterapia',
+          concentracion: medicamento.concentracion || '',
+          presentacion: medicamento.presentacion || '',
+          laboratorio: medicamento.laboratorio || '',
+          lote: medicamento.lote || '',
+          fecha_vencimiento: medicamento.fecha_vencimiento ? medicamento.fecha_vencimiento.split('T')[0] : '',
+          stock: String(medicamento.stock ?? ''),
+          stock_minimo: String(medicamento.stock_minimo ?? ''),
+          valor_unitario: String(medicamento.valor_unitario ?? ''),
+          requiere_refrigeracion: !!medicamento.requiere_refrigeracion
+        });
+      } else {
+        setFormData({
+          nombre_generico: '',
+          nombre_comercial: '',
+          codigo: '',
+          tipo_medicamento: 'Quimioterapia',
+          concentracion: '',
+          presentacion: '',
+          laboratorio: '',
+          lote: '',
+          fecha_vencimiento: '',
+          stock: '',
+          stock_minimo: '',
+          valor_unitario: '',
+          requiere_refrigeracion: false
+        });
+      }
+    }
+  }, [medicamento, isOpen]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     setFormData(prev => ({
@@ -39,7 +87,7 @@ export function MedicamentoModal({ isOpen, onClose, onSuccess }: { isOpen: boole
     const supabase = createClient();
     
     try {
-      const { error } = await supabase.from('medicamentos').insert({
+      const payload = {
         nombre_generico: formData.nombre_generico,
         nombre_comercial: formData.nombre_comercial,
         codigo: formData.codigo,
@@ -54,13 +102,24 @@ export function MedicamentoModal({ isOpen, onClose, onSuccess }: { isOpen: boole
         valor_unitario: parseFloat(formData.valor_unitario) || 0,
         requiere_refrigeracion: formData.requiere_refrigeracion,
         activo: true
-      });
+      };
 
-      if (!error) {
-        onSuccess();
-        onClose();
+      if (medicamento?.id) {
+        const { error } = await supabase.from('medicamentos').update(payload).eq('id', medicamento.id);
+        if (!error) {
+          onSuccess();
+          onClose();
+        } else {
+          console.error(error);
+        }
       } else {
-        console.error(error);
+        const { error } = await supabase.from('medicamentos').insert(payload);
+        if (!error) {
+          onSuccess();
+          onClose();
+        } else {
+          console.error(error);
+        }
       }
     } catch (err) {
       console.error(err);
@@ -76,7 +135,7 @@ export function MedicamentoModal({ isOpen, onClose, onSuccess }: { isOpen: boole
         <Dialog.Content className="fixed left-[50%] top-[50%] max-h-[90vh] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] rounded-xl bg-white p-0 shadow-2xl z-50 overflow-hidden focus:outline-none flex flex-col animate-scale-in">
           <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
             <Dialog.Title className="text-lg font-semibold text-slate-900">
-              Nuevo Medicamento
+              {medicamento ? 'Editar Medicamento' : 'Nuevo Medicamento'}
             </Dialog.Title>
             <Dialog.Close asChild>
               <button className="text-slate-400 hover:text-slate-600 transition-colors">

@@ -4,7 +4,7 @@ import React from 'react';
 import {
   FileCheck2, Clock, CheckCircle2, AlertCircle,
   ChevronDown, ChevronUp, Search, Calendar, Filter,
-  ReceiptText, ListChecks,
+  ReceiptText, ListChecks, DollarSign,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -111,6 +111,9 @@ export default function DocumentosPage() {
   const disponibles = entregas.filter((e) => e.listo_para_facturar).length;
   const pendientes = entregas.filter((e) => !e.listo_para_facturar).length;
   const totalDocsPendientes = entregas.reduce((acc, e) => acc + (e.docs_pendientes || 0), 0);
+  const valorDisponible = entregas
+    .filter((e) => e.listo_para_facturar)
+    .reduce((acc, e) => acc + (e.valor_total || 0), 0);
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
@@ -151,7 +154,7 @@ export default function DocumentosPage() {
       </div>
 
       {/* ── KPI Cards ───────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <StatCard
           title="Entregas del Mes"
           value={totalEntregas.toString()}
@@ -172,6 +175,13 @@ export default function DocumentosPage() {
           icon={<Clock size={20} />}
           accent="warning"
           subtitle="faltan documentos"
+        />
+        <StatCard
+          title="Valor Disp. Facturación"
+          value={formatCOP(valorDisponible)}
+          icon={<DollarSign size={20} />}
+          accent="success"
+          subtitle="entregas con docs OK"
         />
         <StatCard
           title="Documentos Faltantes"
